@@ -28,7 +28,7 @@ USE emrsystem;
 
 -- https://www.w3schools.com/sql/sql_datatypes.asp
 CREATE TABLE patient (
-    PatientID int,
+    PatientID int NOT NULL AUTO_INCREMENT,
     DOB date,
     OHIP varchar(255),
     Address varchar(255),
@@ -55,7 +55,7 @@ USE emrsystem;
 
 -- https://www.w3schools.com/sql/sql_datatypes.asp
 CREATE TABLE patient_record (
-    PatientRecordID int,
+    PatientRecordID int NOT NULL AUTO_INCREMENT,,
     FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     FOREIGN KEY (Record_id) REFERENCES patient (patient_id),
     PRIMARY KEY (PatientRecordID)
