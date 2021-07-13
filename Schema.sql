@@ -61,8 +61,8 @@ CREATE TABLE patient_record (
     PRIMARY KEY (PatientRecordID)
 );
 
-DESC patient;
+DESC patient_records;
 
-INSERT INTO patient (PatientRecordID, patient_id, Record_id)
+INSERT INTO patient_record (PatientRecordID, patient_id, Record_id)
 VALUES (1, , );
 
