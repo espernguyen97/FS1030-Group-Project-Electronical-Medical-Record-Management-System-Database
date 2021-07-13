@@ -21,8 +21,8 @@ CREATE TABLE user (
 
 DESC users;
 
-INSERT INTO user (User_Email, username, password, job_position, First_Name,Last_name)
-VALUES ("test@test.com", "HelloEveryBody", "$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK", "Doctor", "Nick", "Riviera");
+INSERT INTO user (UserID, email, username, password, job_position, First_Name, Last_name, Admin_Flag, Last_Login)
+VALUES (1,"test@test.com", "HelloEveryBody", "$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK", "Doctor", "Nick", 1, "");
 
 
 
