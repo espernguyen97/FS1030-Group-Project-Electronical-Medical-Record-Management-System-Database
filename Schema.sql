@@ -7,13 +7,16 @@ USE emrsystem;
 
 -- https://www.w3schools.com/sql/sql_datatypes.asp
 CREATE TABLE user (
-    User_Email varchar(255),
-    username varchar(255),
+    UserID  int NOT NULL AUTO_INCREMENT,
+    email varchar(100),
+    username varchar(20),
     password varchar(255),
     job_position varchar(255),
     First_Name varchar(255),
     Last_name varchar(255),
-    PRIMARY KEY (User_Email)
+    Admin_Flag boolean,
+    Last_Login date(255),
+    PRIMARY KEY (UserID)
 );
 
 DESC users;
@@ -30,12 +33,12 @@ USE emrsystem;
 CREATE TABLE patient (
     PatientID int NOT NULL AUTO_INCREMENT,
     DOB date,
-    OHIP varchar(255),
+    OHIP varchar(10),
     Address varchar(255),
-    First_Name varchar(255),
-    Last_name varchar(255),
-    Phone_Number varchar(255),
-    Email varchar(255),
+    First_Name varchar(50),
+    Last_name varchar(50),
+    Phone_Number varchar(20),
+    Email varchar(100),
     Last_Visit date,
     Last_Edit datetime,
     Age varchar(255),
@@ -54,15 +57,16 @@ USE emrsystem;
 
 
 -- https://www.w3schools.com/sql/sql_datatypes.asp
-CREATE TABLE patient_record (
-    PatientRecordID int NOT NULL AUTO_INCREMENT,,
+CREATE TABLE notes (
+    NoteID int NOT NULL AUTO_INCREMENT,,
     FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
-    FOREIGN KEY (Record_id) REFERENCES patient (patient_id),
-    PRIMARY KEY (PatientRecordID)
+    Note varchar(1000),
+    Last_Edit datetime,
+    PRIMARY KEY (NoteID)
 );
 
-DESC patient_records;
+DESC notes;
 
-INSERT INTO patient_record (PatientRecordID, patient_id, Record_id)
+INSERT INTO notes (NoteID, patient_id, Note, Last_Edit)
 VALUES (1, , );
 
