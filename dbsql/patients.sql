@@ -1,6 +1,8 @@
 
 USE emrsystem;
 
+DROP TABLE patient;
+
 -- https://www.w3schools.com/sql/sql_datatypes.asp
 CREATE TABLE patient (
     PatientID int NOT NULL AUTO_INCREMENT,

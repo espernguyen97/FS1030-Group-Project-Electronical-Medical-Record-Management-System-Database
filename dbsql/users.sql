@@ -1,6 +1,8 @@
 
 USE emrsystem;
 
+DROP TABLE user;
+
 -- https://www.w3schools.com/sql/sql_datatypes.asp
 CREATE TABLE user (
     UserID  int NOT NULL AUTO_INCREMENT,
