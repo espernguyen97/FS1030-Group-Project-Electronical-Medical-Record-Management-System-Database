@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS `patient`;
 CREATE TABLE `patient` (
   `PatientID` int NOT NULL AUTO_INCREMENT,
   `DOB` date NOT NULL,
-  `OHIP` varchar(12) NOT NULL,
+  `OHIP` varchar(25) NOT NULL,
   `First_Name` varchar(45) NOT NULL,
   `Last_Name` varchar(45) NOT NULL,
   `Address` varchar(100) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE `patient` (
   PRIMARY KEY (`PatientID`),
   UNIQUE KEY `PatientID_UNIQUE` (`PatientID`),
   UNIQUE KEY `OHIP_UNIQUE` (`OHIP`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,6 +111,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
+INSERT INTO `patient` VALUES (1,'1985-02-02','123456789101','Bart','Samperson','123 Test St','Toronto','Ontario','K7L 9A9','1234567897','Test@test.com','20','2021-07-19 00:00:00'),(2,'1985-02-03','1234567891013','Adrian','Alexandra','124 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-20 00:00:00'),(3,'1985-02-04','1234567891015','Alan','Alison','125 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-21 00:00:00'),(4,'1985-02-05','1975308625624','Alexander','Amanda','126 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-22 00:00:00'),(5,'1985-02-06','2530864176581','Andrew','Amelia','127 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-23 00:00:00'),(6,'1985-02-07','3086419727538','Anthony','Amy','128 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-24 00:00:00'),(7,'1985-02-08','3641975278495','Austin','Andrea','129 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-25 00:00:00'),(8,'1985-02-09','4197530829452','Benjamin','Angela','130 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-26 00:00:00'),(9,'1985-02-10','4753086380409','Blake','Anna','131 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-27 00:00:00'),(10,'1985-02-11','5308641931366','Boris','Anne','132 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-28 00:00:00'),(11,'1985-02-12','5864197482323','Brandon','Audrey','133 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-29 00:00:00'),(12,'1985-02-13','6419753033280','Brian','Ava','134 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-07-30 00:00:00'),(13,'1985-02-14','6975308584237','Cameron','Bella','135 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-07-31 00:00:00'),(14,'1985-02-15','7530864135194','Carl','Bernadette','136 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-01 00:00:00'),(15,'1985-02-16','8086419686151','Abigail','Carol','137 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-02 00:00:00'),(16,'1985-02-17','8641975237108','Alexandra','Caroline','138 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-03 00:00:00'),(17,'1985-02-18','9197530788065','Alison','Carolyn','139 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-04 00:00:00'),(18,'1985-02-19','9753086339022','Amanda','Chloe','140 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-05 00:00:00'),(19,'1985-02-20','10308641889979','Amelia','Claire','141 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-06 00:00:00'),(20,'1985-02-21','10864197440936','Amy','Deirdre','142 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-07 00:00:00'),(21,'1985-02-22','11419752991893','Andrea','Diana','143 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-08 00:00:00'),(22,'1985-02-23','11975308542850','Angela','Diane','144 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-09 00:00:00'),(23,'1985-02-24','12530864093807','Anna','Donna','145 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-10 00:00:00'),(24,'1985-02-25','13086419644764','Anne','Dorothy','146 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-11 00:00:00'),(25,'1985-02-26','13641975195721','Audrey','Elizabeth','147 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-12 00:00:00'),(26,'1985-02-27','14197530746678','Blake','Ella','148 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-13 00:00:00'),(27,'1985-02-28','14753086297635','Boris','Emily','149 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-14 00:00:00'),(28,'1985-03-01','15308641848592','Brandon','Emma','150 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-15 00:00:00'),(29,'1985-03-02','15864197399549','Brian','Faith','151 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-16 00:00:00'),(30,'1985-03-03','16419752950506','Cameron','Felicity','152 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-17 00:00:00'),(31,'1985-03-04','16975308501463','Carl','Fiona','153 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-18 00:00:00'),(32,'1985-03-05','17530864052420','Abigail','Gabrielle','154 Test St','Toronto','Ontario','K7L 9A4','1234567897','Test@test.com','20','2021-08-19 00:00:00'),(33,'1985-03-06','18086419603377','Alexandra','Grace','155 Test St','Toronto','Ontario','K7L 9A4','1234567897','Test@test.com','20','2021-08-20 00:00:00'),(34,'1985-02-02','12345678910144','Adam','Abigail','123 Test St','Toronto','Ontario','K7L 9A9','1234567897','Test@test.com','20','2021-07-19 00:00:00');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +161,7 @@ CREATE TABLE `tickets` (
   PRIMARY KEY (`TicketID`),
   KEY `Username_idx` (`Username`),
   CONSTRAINT `Username_tickets` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,6 +170,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (1,'testusername','Test@test.com','2021-07-19 00:00:00','MY fingers Hurt when I press the keyboard to hard!'),(2,'testusername','Test@test.com','2021-07-20 00:00:00','can you please unblock Netflix I cant live without my Oprah!!'),(3,'testusername','Test@test.com','2021-07-21 00:00:00','My computer is running so slow can you help with that?');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,4 +245,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-17 14:41:22
+-- Dump completed on 2021-07-19 21:42:17
