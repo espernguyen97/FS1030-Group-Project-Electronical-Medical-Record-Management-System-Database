@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: emrsystem
+-- Host: localhost    Database: davesportfolio
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,161 +16,65 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `medical_history`
+-- Table structure for table `blog`
 --
 
-DROP TABLE IF EXISTS `medical_history`;
+DROP TABLE IF EXISTS `blog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `medical_history` (
-  `Medical_H` int NOT NULL AUTO_INCREMENT,
-  `PatientID` int NOT NULL,
-  `Username` varchar(45) NOT NULL,
-  `Date` varchar(45) NOT NULL,
-  `Fever` varchar(45) NOT NULL,
-  `Cough` varchar(45) NOT NULL,
-  `Shortness_Breathe` varchar(45) NOT NULL,
-  `Conjunctivitis` varchar(45) NOT NULL,
-  PRIMARY KEY (`Medical_H`),
-  KEY `PatientId_idx` (`PatientID`),
-  KEY `Usernamee_idx` (`Username`),
-  CONSTRAINT `PatientId_MH` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
-  CONSTRAINT `Username_MH` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `blog` (
+  `blogID` int NOT NULL AUTO_INCREMENT,
+  `Title` varchar(45) DEFAULT NULL,
+  `subject` varchar(45) DEFAULT NULL,
+  `content` varchar(10000) DEFAULT NULL,
+  `VideoID` varchar(45) DEFAULT NULL,
+  `CreationDate` date NOT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `imageLink` varchar(255) NOT NULL,
+  PRIMARY KEY (`blogID`),
+  UNIQUE KEY `blogID_UNIQUE` (`blogID`),
+  KEY `Username_idx` (`username`),
+  CONSTRAINT `Username` FOREIGN KEY (`username`) REFERENCES `users` (`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `medical_history`
+-- Dumping data for table `blog`
 --
 
-LOCK TABLES `medical_history` WRITE;
-/*!40000 ALTER TABLE `medical_history` DISABLE KEYS */;
-/*!40000 ALTER TABLE `medical_history` ENABLE KEYS */;
+LOCK TABLES `blog` WRITE;
+/*!40000 ALTER TABLE `blog` DISABLE KEYS */;
+INSERT INTO `blog` VALUES (1,'Can\'t Sleep Clowns Will Eat me.','Funny','Have you ever ended up on a huge coding bender where you are just hooked to get that one last thing done then next thing you know its 4am? Can\'t sleep, the clowns will eat me!','U3yuFlvRyqM','2020-01-01','Ddh','https://westvancouverschools.ca/wp-content/uploads/2019/02/sleep-week-banner.jpg'),(3,'Killer Blue Solo!!','Music','Wow thats all I have to say after seeing this man kill it on stage! check out this video of Christone \'Kingfish\' Ingram do a mashup of Hey Joe/Redbone/Old Town Road with tremendous soul!!!','c5pFylDs9ys','2020-01-03','Ddh','https://i.ibb.co/2nRdzRB/blogbanner.png'),(5,'Playing With Time','Technology','I\'m a sucker for awesome video effects like this I was entraced by this video I miss making Aftereffects videos I really should get back into it!','gooWdc6kb80','2020-01-04','Ddh','http://static1.squarespace.com/static/560b343ae4b03420b41a8760/t/5f19b8cee4c29f1a68cf6414/1595521246383/Mind+Blown+Banner.png?format=1500w'),(6,'Dangit QA tester stop breaking my stuff!','Funny','This video summizes if i were to watch a QA tester working through my stuff I cannot be the only one!','981Pl9-pCLQ','2020-01-05','Ddh','https://strongqa.com/uploads/post/header_image/6/base_qa-day.jpg'),(7,'Now thats What I call a Metal 90\'s Club Mix','Music','Get your dancing shoes on were going back to the 90\'s in this awesome video. ','A_Yqjlq-MAE','2020-01-06','Ddh','https://i.ibb.co/2nRdzRB/blogbanner.png'),(8,'My Thought On Git','Technology','I personally love Git I have used it over the last couple of years over multiple accounts when doing development either web-based or game development I can think of one specific instance where it saved my behind or I would have had to restart one of my Mods in Unreal engine that had over 8 months of time put into it! Because I got into the mindset of doing git backups after every time I closed the engine I was able to grab the old datafile that I had broken (PSA: DO NOT CTRL+Z while doing database structs in Unreal engine or in general lol) So my takeaway is that it\'s a great tool and will always be used by me and I will preach its uses to those who don\'t use it or a similar repo system. Redundancy of backups is not a bad thing in my opinion and Git does all of that and more. I do hope to be able to utilize it in a  more team-based setting in the future as well as I normally tend to use it as a solo practice at the moment','SWYqp7iY_Tc','2020-01-07','Ddh','https://camo.githubusercontent.com/f1c0fc76d120f760664938edd8e1818f9d407b03f8ce7d306e12094d8853b6a0/687474703a2f2f692e696d6775722e636f6d2f6337476d414a662e706e67');
+/*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `notes`
+-- Table structure for table `submissions`
 --
 
-DROP TABLE IF EXISTS `notes`;
+DROP TABLE IF EXISTS `submissions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `notes` (
-  `NoteID` int NOT NULL,
-  `PatientID` int NOT NULL,
-  `Username` varchar(45) NOT NULL,
-  `Date` datetime NOT NULL,
-  `Note` varchar(2000) NOT NULL,
-  PRIMARY KEY (`NoteID`),
-  KEY `PatientID_idx` (`PatientID`),
-  KEY `Username_Notes_idx` (`Username`),
-  CONSTRAINT `PatientID_Notes` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
-  CONSTRAINT `Username_Notes` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `notes`
---
-
-LOCK TABLES `notes` WRITE;
-/*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `notes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `patient`
---
-
-DROP TABLE IF EXISTS `patient`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `patient` (
-  `PatientID` int NOT NULL AUTO_INCREMENT,
-  `DOB` date NOT NULL,
-  `OHIP` varchar(25) NOT NULL,
-  `First_Name` varchar(45) NOT NULL,
-  `Last_Name` varchar(45) NOT NULL,
-  `Address` varchar(100) NOT NULL,
-  `City` varchar(45) NOT NULL,
-  `Province` varchar(45) NOT NULL,
-  `PostalCode` varchar(45) NOT NULL,
-  `Phone_Number` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
-  `Age` varchar(45) NOT NULL,
-  `Last_Edit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`PatientID`),
-  UNIQUE KEY `PatientID_UNIQUE` (`PatientID`),
-  UNIQUE KEY `OHIP_UNIQUE` (`OHIP`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `patient`
---
-
-LOCK TABLES `patient` WRITE;
-/*!40000 ALTER TABLE `patient` DISABLE KEYS */;
-INSERT INTO `patient` VALUES (1,'1985-02-02','123456789101','Sample','Patient','123 Test St','Toronto','Ontario','K7L 9A9','17093334444','Test@test.com','20','2021-07-30 00:00:00'),(2,'1985-02-03','1234567891013','Adrian','Alexandra','124 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-30 00:00:00'),(3,'1985-02-04','1234567891015','Alann','Alison','125 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-30 00:00:00'),(4,'1985-02-05','1975308625624','Alexander','Amanda','126 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-22 00:00:00'),(5,'1985-02-06','2530864176581','Andrew','Amelia','127 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-23 00:00:00'),(6,'1985-02-07','3086419727538','Anthony','Amy','128 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-24 00:00:00'),(7,'1985-02-08','3641975278495','Austin','Andrea','129 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-25 00:00:00'),(8,'1985-02-09','4197530829452','Benjamin','Angela','130 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-26 00:00:00'),(9,'1985-02-10','4753086380409','Blake','Anna','131 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-27 00:00:00'),(10,'1985-02-11','5308641931366','Boris','Anne','132 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-28 00:00:00'),(11,'1985-02-12','5864197482323','Brandon','Audrey','133 Test St','Toronto','Ontario','K7L 9A1','1234567897','Test@test.com','20','2021-07-29 00:00:00'),(12,'1985-02-13','6419753033280','Brian','Ava','134 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-07-30 00:00:00'),(13,'1985-02-14','6975308584237','Cameron','Bella','135 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-07-31 00:00:00'),(14,'1985-02-15','7530864135194','Carl','Bernadette','136 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-01 00:00:00'),(15,'1985-02-16','8086419686151','Abigail','Carol','137 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-02 00:00:00'),(16,'1985-02-17','8641975237108','Alexandra','Caroline','138 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-03 00:00:00'),(17,'1985-02-18','9197530788065','Alison','Carolyn','139 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-04 00:00:00'),(18,'1985-02-19','9753086339022','Amanda','Chloe','140 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-05 00:00:00'),(19,'1985-02-20','10308641889979','Amelia','Claire','141 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-06 00:00:00'),(20,'1985-02-21','10864197440936','Amy','Deirdre','142 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-07 00:00:00'),(21,'1985-02-22','11419752991893','Andrea','Diana','143 Test St','Toronto','Ontario','K7L 9A2','1234567897','Test@test.com','20','2021-08-08 00:00:00'),(22,'1985-02-23','11975308542850','Angela','Diane','144 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-09 00:00:00'),(23,'1985-02-24','12530864093807','Anna','Donna','145 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-10 00:00:00'),(24,'1985-02-25','13086419644764','Anne','Dorothy','146 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-11 00:00:00'),(25,'1985-02-26','13641975195721','Audrey','Elizabeth','147 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-12 00:00:00'),(26,'1985-02-27','14197530746678','Blake','Ella','148 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-13 00:00:00'),(27,'1985-02-28','14753086297635','Boris','Emily','149 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-14 00:00:00'),(28,'1985-03-01','15308641848592','Brandon','Emma','150 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-15 00:00:00'),(29,'1985-03-02','15864197399549','Brian','Faith','151 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-16 00:00:00'),(30,'1985-03-03','16419752950506','Cameron','Felicity','152 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-17 00:00:00'),(31,'1985-03-04','16975308501463','Carl','Fiona','153 Test St','Toronto','Ontario','K7L 9A3','1234567897','Test@test.com','20','2021-08-18 00:00:00'),(32,'1985-03-05','17530864052420','Abigail','Gabrielle','154 Test St','Toronto','Ontario','K7L 9A4','1234567897','Test@test.com','20','2021-08-19 00:00:00'),(33,'1985-03-06','18086419603377','Alexandra','Grace','155 Test St','Toronto','Ontario','K7L 9A4','1234567897','Test@test.com','20','2021-08-20 00:00:00'),(34,'1985-02-02','12345678910144','Adam','Abigail','123 Test St','Toronto','Ontario','K7L 9A9','1234567897','Test@test.com','20','2021-07-19 00:00:00');
-/*!40000 ALTER TABLE `patient` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `revision_history`
---
-
-DROP TABLE IF EXISTS `revision_history`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `revision_history` (
-  `UserID` int NOT NULL,
-  `PatientID` int NOT NULL,
-  `Revision` varchar(1000) NOT NULL,
-  `Date` datetime DEFAULT NOW(),
-  KEY `PatientID_Revision_idx` (`PatientID`),
-  KEY `UserId_Revision_idx` (`UserID`),
-  CONSTRAINT `PatientID_Revision` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE,
-  CONSTRAINT `UserId_Revision` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `revision_history`
---
-
-LOCK TABLES `revision_history` WRITE;
-/*!40000 ALTER TABLE `revision_history` DISABLE KEYS */;
-INSERT INTO `revision_history` (UserID, PatientID, Revision) VALUES (1, 1, "First_Name changed from Bart to Sample by test testerson"), (1, 1, "Last_Name changed from Samperson to Patient by test testerson"), (1, 1, "Phone_Number changed from 1234567897 to 17093334444 by test testerson");
-/*!40000 ALTER TABLE `revision_history` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tickets`
---
-
-DROP TABLE IF EXISTS `tickets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tickets` (
-  `TicketID` int NOT NULL AUTO_INCREMENT,
-  `Username` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `Date` datetime NOT NULL,
-  `content` varchar(1000) NOT NULL,
-  PRIMARY KEY (`TicketID`),
-  KEY `Username_idx` (`Username`),
-  CONSTRAINT `Username_tickets` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
+CREATE TABLE `submissions` (
+  `SubmissionID` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `DiscordH` varchar(45) DEFAULT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Message` varchar(45) NOT NULL,
+  `CreationDate` date NOT NULL,
+  PRIMARY KEY (`SubmissionID`),
+  UNIQUE KEY `SubmissionID_UNIQUE` (`SubmissionID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tickets`
+-- Dumping data for table `submissions`
 --
 
-LOCK TABLES `tickets` WRITE;
-/*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (1,'testusername','Test@test.com','2021-07-31 00:00:00','MY fingers Hurt when I press the keyboard to hard!'),(2,'testusername','Test@test.com','2021-07-20 00:00:00','can you please unblock Netflix I cant live without my Oprah!!'),(3,'testusername','Test@test.com','2021-07-21 00:00:00','My computer is running so slow can you help with that?');
-/*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
+LOCK TABLES `submissions` WRITE;
+/*!40000 ALTER TABLE `submissions` DISABLE KEYS */;
+INSERT INTO `submissions` VALUES (1,'Test','TestDiscord#123','Test@test.com','Testing is testing is testing','1985-02-02'),(2,'Test','TestDiscord#123','Test@test.com','Testing is testing is testing','1985-02-02'),(3,'Test','TestDiscord#123','Test@test.com','Testing is testing is testing','1985-02-02'),(4,'test test','+15555555555','test@test.com','asdasdasd','2021-07-24');
+/*!40000 ALTER TABLE `submissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -181,19 +85,17 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `UserID` int NOT NULL AUTO_INCREMENT,
-  `Username` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
-  `Password` varchar(500) NOT NULL,
-  `First_Name` varchar(45) NOT NULL,
-  `Last_Name` varchar(45) NOT NULL,
-  `Job_Position` varchar(45) NOT NULL,
-  `Admin_Flag` tinyint(1) NOT NULL,
-  `Last_Login` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`UserID`),
-  UNIQUE KEY `UserID_UNIQUE` (`UserID`),
+  `userID` int NOT NULL AUTO_INCREMENT,
+  `Username` varchar(45) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `CreationDate` datetime NOT NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE KEY `userID_UNIQUE` (`userID`),
+  UNIQUE KEY `CreationDate_UNIQUE` (`CreationDate`),
   UNIQUE KEY `Username_UNIQUE` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,37 +104,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'testusername','test@test.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','test','testerson','doctor',0,'2021-07-31 04:49:10'),(2,'Dave','dave@dave.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','dave','H','Admin',1,'2019-01-01 10:10:10'),(3,'Chris','Chris@Chris.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Chris','G','Admin',1,'2019-01-01 10:10:10'),(4,'Steven','Steven@Steven.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Steven','W','Admin',1,'2019-01-01 10:10:10');
+INSERT INTO `users` VALUES (1,'Ddh','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','test@test.com','Dave','2020-01-01 10:10:10');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `visits`
---
-
-DROP TABLE IF EXISTS `visits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `visits` (
-  `VisitID` int NOT NULL AUTO_INCREMENT,
-  `PatientID` int NOT NULL,
-  `Username` varchar(45) NOT NULL,
-  `Visit_Date` datetime NOT NULL,
-  PRIMARY KEY (`VisitID`),
-  KEY `PatientID_idx` (`PatientID`),
-  KEY `Username_idx` (`Username`),
-  CONSTRAINT `PatientID` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
-  CONSTRAINT `Username` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `visits`
---
-
-LOCK TABLES `visits` WRITE;
-/*!40000 ALTER TABLE `visits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `visits` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -244,4 +117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-31 14:45:51
+-- Dump completed on 2021-08-01 20:54:10
