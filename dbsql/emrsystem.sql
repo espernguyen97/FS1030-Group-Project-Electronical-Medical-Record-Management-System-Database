@@ -145,7 +145,7 @@ CREATE TABLE `revision_history` (
 
 LOCK TABLES `revision_history` WRITE;
 /*!40000 ALTER TABLE `revision_history` DISABLE KEYS */;
-INSERT INTO `revision_history` VALUES (1,1,'First_Name changed from Bart to Sample by test testerson','2021-07-31 19:20:52'),(1,1,'Last_Name changed from Samperson to Patient by test testerson','2021-07-31 19:20:52'),(1,1,'Phone_Number changed from 1234567897 to 17093334444 by test testerson','2021-07-31 19:20:52'),(1,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by test testerson','2021-07-31 15:53:46'),(1,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by test testerson','2021-07-31 15:54:16'),(1,2,'DOB changed from 1985-02-03T05:00:00.000Z to 1985-02-03 by test testerson','2021-07-31 17:30:30'),(1,2,'DOB changed from 1985-02-03T05:00:00.000Z to 1985-02-03 by test testerson','2021-07-31 17:30:46'),(1,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by test testerson','2021-08-01 16:37:27'),(1,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by test testerson','2021-08-01 20:52:50'),(1,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by test testerson','2021-08-01 22:47:28'),(1,8,'DOB changed from 1985-02-09T05:00:00.000Z to 1985-02-14 by test testerson','2021-08-01 23:38:25'),(2,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by dave H','2021-08-02 00:29:28'),(2,38,'DOB changed from 2021-08-10T04:00:00.000Z to 2021-08-10 by dave H','2021-08-02 00:30:57'),(2,38,'First_Name changed from test to Doo by dave H','2021-08-02 00:30:57'),(2,38,'Last_Name changed from 125521 to Wop by dave H','2021-08-02 00:30:57');
+INSERT INTO `revision_history` VALUES (1,1,'First_Name changed from Bart to Sample by test testerson','2021-07-31 19:20:52'),(1,1,'Last_Name changed from Samperson to Patient by test testerson','2021-07-31 19:20:52'),(1,1,'Phone_Number changed from 1234567897 to 17093334444 by test testerson','2021-07-31 19:20:52'),(1,8,'DOB changed from 1985-02-09T05:00:00.000Z to 1985-02-14 by test testerson','2021-08-01 23:38:25'),(2,1,'DOB changed from 1985-02-02T05:00:00.000Z to 1985-02-02 by dave H','2021-08-02 00:29:28'),(2,38,'DOB changed from 2021-08-10T04:00:00.000Z to 2021-08-10 by dave H','2021-08-02 00:30:57'),(2,38,'First_Name changed from test to Doo by dave H','2021-08-02 00:30:57'),(2,38,'Last_Name changed from 125521 to Wop by dave H','2021-08-02 00:30:57');
 /*!40000 ALTER TABLE `revision_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +188,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `UserID` int NOT NULL AUTO_INCREMENT,
   `Username` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL UNIQUE,
   `Password` varchar(500) NOT NULL,
   `First_Name` varchar(45) NOT NULL,
   `Last_Name` varchar(45) NOT NULL,
