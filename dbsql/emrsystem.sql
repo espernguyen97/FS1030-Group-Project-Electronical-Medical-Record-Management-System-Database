@@ -38,7 +38,7 @@ CREATE TABLE `medical_history` (
   KEY `Usernamee_idx` (`Username`),
   CONSTRAINT `PatientId_MH` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
   CONSTRAINT `Username_MH` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `medical_history` (
 
 LOCK TABLES `medical_history` WRITE;
 /*!40000 ALTER TABLE `medical_history` DISABLE KEYS */;
-INSERT INTO `medical_history` VALUES (1,2,'Dave','2021-07-31 15:53:46','No','Pollen','Xray URL','Yes','ChartURL','Drug A, Drug B, Drug C'),(2,3,'Chris','2021-07-31 15:53:36','No','Pollen','Xray URL','Yes','ChartURL','Drug A, Drug B, Drug C'),(3,11,'Steven','2021-07-31 15:53:26','No','Pollen','Xray URL','Yes','ChartURL','Drug A, Drug B, Drug C'),(4,4,'Dave','2021-07-31 15:53:16','No','Pollen','Xray URL','Yes','ChartURL','Drug A, Drug B, Drug C');
+INSERT INTO `medical_history` VALUES (1,2,'Dave','2021-07-31 15:53:46','No','Pollen','https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Lung_X-ray.jpg/220px-Lung_X-ray.jpg','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','Gabapentin,Meloxicam,Sublocade'),(2,3,'Chris','2021-07-31 15:53:36','No','Pollen','https://4rai.com/images/easyblog_articles/155/chest-xray.jpg','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','Naltrexone,Xanax'),(3,11,'Steven','2021-07-31 15:53:26','No','Pollen','https://blog.universalmedicalinc.com/wp-content/uploads/sites/264/gallery/postimages/cache/photodune-2618118-hands-xray-l.JPG-nggid042182-ngg0dyn-0x0x100-00f0w010c010r110f110r010t010.JPG','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','Viagra,Trazodone'),(4,4,'Dave','2021-07-31 15:53:16','No','Pollen','https://media.istockphoto.com/photos/human-thoracic-cavity-xray-film-picture-id1212285302?k=6&m=1212285302&s=612x612&w=0&h=E-BxYqpgfeW0IM4roPkF3Yd5PP71lP9AHMnJG7FnbRo=','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','Probuphine,Lofexidine'),(5,2,'Chris','2021-08-02 23:52:53','No','125125','https://healthitanalytics.com/images/site/article_headers/_normal/ThinkstockPhotos-658813850.jpg','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','Otezla'),(7,4,'Steven','2021-08-02 23:58:37','No','4124124','https://cdn-prod.medicalnewstoday.com/content/images/articles/219/219970/x-ray-skull-from-right-side.jpg','Yes','https://i.ibb.co/SvW9py2/New-Project-6.png','None');
 /*!40000 ALTER TABLE `medical_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02 19:38:25
+-- Dump completed on 2021-08-02 20:19:53
