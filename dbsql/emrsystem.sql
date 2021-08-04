@@ -34,7 +34,7 @@ CREATE TABLE `medical_history` (
   `LabResults` varchar(255) DEFAULT NULL,
   `Prescriptions` varchar(45) DEFAULT NULL,
   `BillStatus` varchar(45) DEFAULT NULL,
-  `Imunizations` varchar(255) DEFAULT NULL,
+  `Immunizations` varchar(255) DEFAULT NULL,
   `Insurance_Provider` varchar(45) DEFAULT NULL,
   `InsuredStatus` varchar(45) DEFAULT NULL,
   `Smoker` varchar(45) DEFAULT NULL,
