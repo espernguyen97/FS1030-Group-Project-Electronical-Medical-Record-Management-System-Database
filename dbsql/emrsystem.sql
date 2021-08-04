@@ -158,6 +158,38 @@ INSERT INTO `revision_history` VALUES (1,1,'First_Name changed from Bart to Samp
 UNLOCK TABLES;
 
 --
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedule` (
+  `scheduleID` int NOT NULL AUTO_INCREMENT,
+  `PatientID` int NOT NULL,
+  `Username` varchar(45) NOT NULL,
+  `Date` varchar(45) NOT NULL,
+  `Timeslot` varchar(45) NOT NULL,
+  PRIMARY KEY (`scheduleID`),
+  UNIQUE KEY `scheduleID_UNIQUE` (`scheduleID`),
+  KEY `Last_Name_schedule_idx` (`Username`),
+  KEY `PatientID_schedule_idx` (`PatientID`),
+  CONSTRAINT `PatientID_schedule` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
+  CONSTRAINT `Username_schedule` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedule`
+--
+
+LOCK TABLES `schedule` WRITE;
+/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+INSERT INTO `schedule` VALUES (1,1,'Dave','2021-07-31 ','06:00'),(2,2,'Chris','2021-07-31 ','06:30'),(3,1,'Dave','2021-08-05','08:09'),(4,4,'Alexandra','2019-01-04','07:30'),(5,5,'Alison','2019-01-05','08:00'),(6,6,'Amanda','2019-01-06','08:30'),(7,7,'Amelia','2019-01-07','09:00'),(8,8,'Amy','2019-01-08','09:30'),(9,9,'Abigail','2019-01-09','10:00'),(10,10,'Alexandra','2019-01-10','10:30'),(11,11,'Alison','2019-01-11','11:00'),(12,12,'Amanda','2019-01-12','11:30'),(13,13,'Amelia','2019-01-13','12:00'),(14,14,'Amy','2019-01-14','12:30'),(15,1,'Alann','2019-01-15','13:00'),(16,2,'Alexander','2019-01-16','13:30'),(17,3,'Andrew','2019-01-17','14:00'),(18,4,'Brian','2019-01-18','14:30'),(19,5,'Cameron','2019-01-19','15:00'),(20,6,'Carl','2019-01-20','06:00'),(21,7,'Abigail','2019-01-21','06:30'),(22,1,'Alexandra','2019-01-22','07:00'),(23,2,'Alison','2019-01-23','07:30'),(24,3,'Amanda','2019-01-24','08:00'),(25,4,'Amelia','2019-01-25','08:30'),(26,5,'Amy','2019-01-26','09:00'),(27,6,'Abigail','2019-01-27','09:30'),(28,7,'Alexandra','2019-01-28','10:00'),(29,8,'Alison','2019-01-29','10:30'),(30,9,'Amanda','2019-01-30','11:00'),(31,10,'Amelia','2019-01-31','11:30'),(32,11,'Amy','2019-02-01','12:00'),(33,12,'Alann','2019-02-02','12:30'),(34,13,'Alexander','2019-02-03','13:00'),(35,14,'Andrew','2019-02-04','13:30'),(73,3,'Anthony','2021-08-04','19:35');
+/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tickets`
 --
 
@@ -207,7 +239,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `Email` (`Email`),
   UNIQUE KEY `UserID_UNIQUE` (`UserID`),
   UNIQUE KEY `Username_UNIQUE` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,37 +248,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'testusername','test@test.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','test','testerson','doctor',0,'2021-07-31 04:49:10'),(2,'Dave','dave@dave.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','dave','H','Admin',1,'2019-01-01 10:10:10'),(3,'Chris','Chris@Chris.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Chris','G','Admin',1,'2019-01-01 10:10:10'),(4,'Steven','Steven@Steven.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Steven','W','Admin',1,'2019-01-01 10:10:10');
+INSERT INTO `users` VALUES (1,'testusername','test@test.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','test','testerson','doctor',0,'2021-07-31 04:49:10'),(2,'Dave','dave@dave.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','dave','H','Admin',1,'2019-01-01 10:10:10'),(3,'Chris','Chris@Chris.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Chris','G','Admin',1,'2019-01-01 10:10:10'),(4,'Steven','Steven@Steven.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Steven','W','Admin',1,'2019-01-01 10:10:10'),(5,'John','1TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','John','Bella','doctor',0,'2011-04-08 02:13:10'),(6,'Adrian','2TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Adrian','Perez','nurse',0,'2008-09-08 07:34:10'),(7,'Alann','3TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Alann','Wright','nurse',0,'2006-02-09 12:55:10'),(8,'Alexander','4TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Alexander','Caroline','doctor',0,'2003-07-13 18:16:10'),(9,'Andrew','5TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Andrew','Green','doctor',0,'2000-12-13 23:37:10'),(10,'Anthony','6TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Anthony','Chloe','nurse',0,'1998-05-17 04:58:10'),(11,'Austin','7TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Austin','Adams','doctor',0,'1995-10-18 10:19:10'),(12,'Benjamin','8TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Benjamin','Deirdre','doctor',0,'1993-03-20 15:40:10'),(13,'Blake','9TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Blake','Bella','nurse',0,'1990-08-21 21:01:10'),(14,'Boris','11TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Boris','Perez','doctor',0,'1988-01-23 02:22:10'),(15,'Brandon','12TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Brandon','Wright','doctor',0,'1985-06-25 07:43:10'),(16,'Brian','13TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Brian','Caroline','nurse',0,'1982-11-26 13:04:10'),(17,'Cameron','15TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Cameron','Green','nurse',0,'1980-04-28 18:25:10'),(18,'Carl','14TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Carl','Chloe','doctor',0,'1977-09-29 23:46:10'),(19,'Abigail','16TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Abigail','Adams','doctor',0,'1975-03-03 05:07:10'),(20,'Alexandra','17TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Alexandra','Deirdre','doctor',0,'1972-08-03 10:28:10'),(21,'Alison','18TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Alison','Hall','nurse',0,'1970-01-04 15:49:10'),(22,'Amanda','19TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Amanda','Hill','nurse',0,'1967-06-07 21:10:10'),(23,'Amelia','20TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Amelia','Donna','doctor',0,'1964-11-08 02:31:10'),(24,'Amy','21TestDoctor@TestDoctor.com','$2b$10$tPDPMQasnDA.N/jB/ZLJ0OyF8VZixbfGVrj2TkXP8d7Sbvr8rdUfK','Amy','Dorothy','doctor',0,'1962-04-11 07:52:10');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `visits`
---
-
-DROP TABLE IF EXISTS `visits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `visits` (
-  `VisitID` int NOT NULL AUTO_INCREMENT,
-  `PatientID` int NOT NULL,
-  `Username` varchar(45) NOT NULL,
-  `Visit_Date` datetime NOT NULL,
-  PRIMARY KEY (`VisitID`),
-  KEY `PatientID_idx` (`PatientID`),
-  KEY `Username_idx` (`Username`),
-  CONSTRAINT `PatientID` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
-  CONSTRAINT `Username` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `visits`
---
-
-LOCK TABLES `visits` WRITE;
-/*!40000 ALTER TABLE `visits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `visits` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -258,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-03 22:54:04
+-- Dump completed on 2021-08-04 19:31:48
