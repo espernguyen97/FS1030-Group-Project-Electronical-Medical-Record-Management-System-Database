@@ -44,7 +44,7 @@ CREATE TABLE `medical_history` (
   PRIMARY KEY (`Medical_H`),
   KEY `PatientId_idx` (`PatientID`),
   KEY `Usernamee_idx` (`Username`),
-  CONSTRAINT `PatientId_MH` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
+  CONSTRAINT `PatientId_MH` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE,
   CONSTRAINT `Username_MH` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -76,7 +76,7 @@ CREATE TABLE `notes` (
   UNIQUE KEY `NoteID_UNIQUE` (`NoteID`),
   KEY `PatientID_idx` (`PatientID`),
   KEY `Username_Notes_idx` (`Username`),
-  CONSTRAINT `PatientID_Notes` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
+  CONSTRAINT `PatientID_Notes` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE,
   CONSTRAINT `Username_Notes` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -174,7 +174,7 @@ CREATE TABLE `schedule` (
   UNIQUE KEY `scheduleID_UNIQUE` (`scheduleID`),
   KEY `Last_Name_schedule_idx` (`Username`),
   KEY `PatientID_schedule_idx` (`PatientID`),
-  CONSTRAINT `PatientID_schedule` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`),
+  CONSTRAINT `PatientID_schedule` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE,
   CONSTRAINT `Username_schedule` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
