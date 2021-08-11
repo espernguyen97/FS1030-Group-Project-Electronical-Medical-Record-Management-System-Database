@@ -204,8 +204,7 @@ CREATE TABLE `tickets` (
   `Completed` varchar(50) DEFAULT NULL,
   `Notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`TicketID`),
-  KEY `Username_idx` (`Username`),
-  CONSTRAINT `Username_tickets` FOREIGN KEY (`Username`) REFERENCES `users` (`Username`)
+  KEY `Username_idx` (`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
