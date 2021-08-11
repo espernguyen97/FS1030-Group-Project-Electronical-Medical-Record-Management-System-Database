@@ -203,9 +203,10 @@ CREATE TABLE `tickets` (
   `content` varchar(1000) NOT NULL,
   `Completed` varchar(50) DEFAULT NULL,
   `Notes` varchar(255) DEFAULT NULL,
+  `TicketNumber` varchar(64) NOT NULL,
   PRIMARY KEY (`TicketID`),
   KEY `Username_idx` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +215,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (1,'testusername','Test@test.com','2021-08-10 00:00:00','MY fingers Hurt when I press the keyboard to hard!','Completed','I dunno how I can help with this - Dave'),(2,'testusername','Test@test.com','2021-08-10 00:00:00','can you please unblock Netflix I cant live without my Oprah!!','Completed','We will not unblock as per Company Policy'),(3,'testusername','Test@test.com','2021-08-10 00:00:00','My computer is running so slow can you help with that?','Under Review','Sent Tech over to Workstation to review Hardware and Software'),(19,'Alann','test@test.com','2021-08-10 00:00:00','User Id 63 will not let me Update the Medical Records','In Progress','Currently Looking into this Issue - Dave \n(This is not a real issue)'),(20,'Alexander','test@test.com','2021-08-10 00:00:00','I got a wierd error when I tried to login... ','In Progress','Reached out to Cargiver to see what the Error message is. - Dave');
+INSERT INTO `tickets` VALUES (1,'testusername','Test@test.com','2021-08-10 00:00:00','MY fingers Hurt when I press the keyboard to hard!','Completed','I dunno how I can help with this - Dave','undefined'),(2,'testusername','Test@test.com','2021-08-10 00:00:00','can you please unblock Netflix I cant live without my Oprah!!','Completed','We will not unblock as per Company Policy','YY8zxGsWv5j45F2hD9TZjsWZqlhocLfrt0TGolaUiXJUj54AgKvdU1tDyeoOT8nk'),(3,'testusername','Test@test.com','2021-08-10 00:00:00','My computer is running so slow can you help with that?','Under Review','Sent Tech over to Workstation to review Hardware and Software','fss2HAt0PZ0YQ7C8zaOqoo0NOfkSa7EIyQWuicDX1oLASiOH4oNUVru6bGFT15EO'),(19,'Alann','test@test.com','2021-08-10 00:00:00','User Id 63 will not let me Update the Medical Records','In Progress','Currently Looking into this Issue - Dave \n(This is not a real issue)','Mp2ejgLEHGuZvJHWH2RBOIWZH2CLx8b0ikHrvCDgjTQ7ZLFwzZ9LYHo4A5pTNjtO'),(20,'Alexander','test@test.com','2021-08-10 00:00:00','I got a wierd error when I tried to login... ','In Progress','Reached out to Cargiver to see what the Error message is. - Dave','T8VWHaAHUUTM13DfjUG2aZwAuc9IV4dSGf4XqBsRggAczKduweOXh27Ix5tjQV4w'),(32,'Dave','test@test.com','2021-08-11 01:54:55','test',NULL,NULL,'6sOieCGqOVVHQwNXUYJ5CV0qLIpqKnx5PVww527GTFHnI6OatiBEqmDWhiLNBXc6');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,4 +262,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 19:21:28
+-- Dump completed on 2021-08-10 21:56:49
