@@ -142,7 +142,7 @@ CREATE TABLE `revision_history` (
   `Date` datetime DEFAULT CURRENT_TIMESTAMP,
   KEY `PatientID_Revision_idx` (`PatientID`),
   KEY `UserId_Revision_idx` (`UserID`),
-  CONSTRAINT `PatientID_Revision` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE,
+  CONSTRAINT `PatientID_Revision` FOREIGN KEY (`PatientID`) REFERENCES `patient` (`PatientID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
